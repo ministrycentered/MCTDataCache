@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "MCTDataCache.h"
 
 @interface MCTDataCacheTests : XCTestCase
 
@@ -14,21 +15,15 @@
 
 @implementation MCTDataCacheTests
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+- (void)testCacheSizing {
+    XCTAssertTrue([[MCTDataCacheController sharedCache] cacheSizeInBytes] > 0);
 }
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testCacheSizeOversized {
+    [[MCTDataCacheController sharedCache] setMaxCacheSize:MCTDataCacheSize_500MB];
+    XCTAssertFalse([[MCTDataCacheController sharedCache] cacheIsOversized]);
+    [[MCTDataCacheController sharedCache] setMaxCacheSize:1];
+    XCTAssertTrue([[MCTDataCacheController sharedCache] cacheIsOversized]);
+    [[MCTDataCacheController sharedCache] setMaxCacheSize:MCTDataCacheSize_500MB];
 }
 
 @end

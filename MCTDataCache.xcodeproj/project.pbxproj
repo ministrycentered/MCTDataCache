@@ -9,13 +9,25 @@
 /* Begin PBXBuildFile section */
 		947D587B18CA354E0013B8C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D587A18CA354E0013B8C6 /* Foundation.framework */; };
 		947D588018CA354E0013B8C6 /* MCTDataCache.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 947D587F18CA354E0013B8C6 /* MCTDataCache.h */; };
-		947D588218CA354E0013B8C6 /* MCTDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D588118CA354E0013B8C6 /* MCTDataCache.m */; };
 		947D588918CA354E0013B8C6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D588818CA354E0013B8C6 /* XCTest.framework */; };
 		947D588A18CA354E0013B8C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D587A18CA354E0013B8C6 /* Foundation.framework */; };
 		947D588C18CA354E0013B8C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D588B18CA354E0013B8C6 /* UIKit.framework */; };
 		947D588F18CA354E0013B8C6 /* libMCTDataCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D587718CA354E0013B8C6 /* libMCTDataCache.a */; };
 		947D589518CA354E0013B8C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 947D589318CA354E0013B8C6 /* InfoPlist.strings */; };
 		947D589718CA354E0013B8C6 /* MCTDataCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D589618CA354E0013B8C6 /* MCTDataCacheTests.m */; };
+		947D58A318CA36AF0013B8C6 /* MCTDataCacheController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58A218CA36AF0013B8C6 /* MCTDataCacheController.m */; };
+		947D58A518CA37430013B8C6 /* MCTDataCacheHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58A418CA37430013B8C6 /* MCTDataCacheHelperTests.m */; };
+		947D58B118CA42900013B8C6 /* MCTDataCacheFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58B018CA42900013B8C6 /* MCTDataCacheFileManager.m */; };
+		947D58B618CA43EA0013B8C6 /* MCTDataCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58B518CA43EA0013B8C6 /* MCTDataCacheObject.m */; };
+		947D58B818CA47B70013B8C6 /* MCTDataCacheFileManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58B718CA47B70013B8C6 /* MCTDataCacheFileManagerTests.m */; };
+		947D58BA18CA4CD30013B8C6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D58B918CA4CD30013B8C6 /* MobileCoreServices.framework */; };
+		947D58BB18CA4CDB0013B8C6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D58B918CA4CD30013B8C6 /* MobileCoreServices.framework */; };
+		947D58C018CA56D80013B8C6 /* test_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 947D58BF18CA56D80013B8C6 /* test_song.mp3 */; };
+		947D58C718CA596F0013B8C6 /* MCTDataCacheMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58C618CA596F0013B8C6 /* MCTDataCacheMetaData.m */; };
+		947D58C918CA59F70013B8C6 /* MCTDataCacheMetaDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58C818CA59F70013B8C6 /* MCTDataCacheMetaDataTests.m */; };
+		947D58CD18CA6F520013B8C6 /* MCTDataCacheURLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58CC18CA6F520013B8C6 /* MCTDataCacheURLFormatter.m */; };
+		947D58CF18CA6F800013B8C6 /* MCTDataCacheURLFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58CE18CA6F800013B8C6 /* MCTDataCacheURLFormatterTests.m */; };
+		947D58D618CA90050013B8C6 /* MCTDataCacheNetworkRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58D518CA90050013B8C6 /* MCTDataCacheNetworkRequestHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +58,32 @@
 		947D587A18CA354E0013B8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		947D587E18CA354E0013B8C6 /* MCTDataCache-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCTDataCache-Prefix.pch"; sourceTree = "<group>"; };
 		947D587F18CA354E0013B8C6 /* MCTDataCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTDataCache.h; sourceTree = "<group>"; };
-		947D588118CA354E0013B8C6 /* MCTDataCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTDataCache.m; sourceTree = "<group>"; };
 		947D588718CA354E0013B8C6 /* MCTDataCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCTDataCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		947D588818CA354E0013B8C6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		947D588B18CA354E0013B8C6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		947D589218CA354E0013B8C6 /* MCTDataCacheTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCTDataCacheTests-Info.plist"; sourceTree = "<group>"; };
 		947D589418CA354E0013B8C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		947D589618CA354E0013B8C6 /* MCTDataCacheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheTests.m; sourceTree = "<group>"; };
+		947D58A018CA35750013B8C6 /* MCTDataCacheHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheHelpers.h; sourceTree = "<group>"; };
+		947D58A118CA36AF0013B8C6 /* MCTDataCacheController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheController.h; sourceTree = "<group>"; };
+		947D58A218CA36AF0013B8C6 /* MCTDataCacheController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheController.m; sourceTree = "<group>"; };
+		947D58A418CA37430013B8C6 /* MCTDataCacheHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheHelperTests.m; sourceTree = "<group>"; };
+		947D58A618CA3AA70013B8C6 /* MCTDataCacheData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheData.h; sourceTree = "<group>"; };
+		947D58AF18CA42900013B8C6 /* MCTDataCacheFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheFileManager.h; sourceTree = "<group>"; };
+		947D58B018CA42900013B8C6 /* MCTDataCacheFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheFileManager.m; sourceTree = "<group>"; };
+		947D58B418CA43EA0013B8C6 /* MCTDataCacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheObject.h; sourceTree = "<group>"; };
+		947D58B518CA43EA0013B8C6 /* MCTDataCacheObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheObject.m; sourceTree = "<group>"; };
+		947D58B718CA47B70013B8C6 /* MCTDataCacheFileManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheFileManagerTests.m; sourceTree = "<group>"; };
+		947D58B918CA4CD30013B8C6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		947D58BF18CA56D80013B8C6 /* test_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test_song.mp3; sourceTree = "<group>"; };
+		947D58C518CA596F0013B8C6 /* MCTDataCacheMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheMetaData.h; sourceTree = "<group>"; };
+		947D58C618CA596F0013B8C6 /* MCTDataCacheMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheMetaData.m; sourceTree = "<group>"; };
+		947D58C818CA59F70013B8C6 /* MCTDataCacheMetaDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheMetaDataTests.m; sourceTree = "<group>"; };
+		947D58CB18CA6F520013B8C6 /* MCTDataCacheURLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheURLFormatter.h; sourceTree = "<group>"; };
+		947D58CC18CA6F520013B8C6 /* MCTDataCacheURLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheURLFormatter.m; sourceTree = "<group>"; };
+		947D58CE18CA6F800013B8C6 /* MCTDataCacheURLFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheURLFormatterTests.m; sourceTree = "<group>"; };
+		947D58D418CA90050013B8C6 /* MCTDataCacheNetworkRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTDataCacheNetworkRequestHandler.h; sourceTree = "<group>"; };
+		947D58D518CA90050013B8C6 /* MCTDataCacheNetworkRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTDataCacheNetworkRequestHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				947D58BA18CA4CD30013B8C6 /* MobileCoreServices.framework in Frameworks */,
 				947D587B18CA354E0013B8C6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				947D58BB18CA4CDB0013B8C6 /* MobileCoreServices.framework in Frameworks */,
 				947D588918CA354E0013B8C6 /* XCTest.framework in Frameworks */,
 				947D588F18CA354E0013B8C6 /* libMCTDataCache.a in Frameworks */,
 				947D588C18CA354E0013B8C6 /* UIKit.framework in Frameworks */,
@@ -100,6 +133,7 @@
 		947D587918CA354E0013B8C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				947D58B918CA4CD30013B8C6 /* MobileCoreServices.framework */,
 				947D587A18CA354E0013B8C6 /* Foundation.framework */,
 				947D588818CA354E0013B8C6 /* XCTest.framework */,
 				947D588B18CA354E0013B8C6 /* UIKit.framework */,
@@ -111,7 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				947D587F18CA354E0013B8C6 /* MCTDataCache.h */,
-				947D588118CA354E0013B8C6 /* MCTDataCache.m */,
+				947D58A618CA3AA70013B8C6 /* MCTDataCacheData.h */,
+				947D58A118CA36AF0013B8C6 /* MCTDataCacheController.h */,
+				947D58A218CA36AF0013B8C6 /* MCTDataCacheController.m */,
+				947D58AD18CA42500013B8C6 /* Service Objects */,
 				947D587D18CA354E0013B8C6 /* Supporting Files */,
 			);
 			path = MCTDataCache;
@@ -121,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				947D587E18CA354E0013B8C6 /* MCTDataCache-Prefix.pch */,
+				947D58A018CA35750013B8C6 /* MCTDataCacheHelpers.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -129,6 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				947D589618CA354E0013B8C6 /* MCTDataCacheTests.m */,
+				947D58A418CA37430013B8C6 /* MCTDataCacheHelperTests.m */,
+				947D58B718CA47B70013B8C6 /* MCTDataCacheFileManagerTests.m */,
+				947D58C818CA59F70013B8C6 /* MCTDataCacheMetaDataTests.m */,
+				947D58CE18CA6F800013B8C6 /* MCTDataCacheURLFormatterTests.m */,
 				947D589118CA354E0013B8C6 /* Supporting Files */,
 			);
 			path = MCTDataCacheTests;
@@ -137,10 +179,60 @@
 		947D589118CA354E0013B8C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				947D58BC18CA55F20013B8C6 /* Test Files */,
 				947D589218CA354E0013B8C6 /* MCTDataCacheTests-Info.plist */,
 				947D589318CA354E0013B8C6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		947D58AD18CA42500013B8C6 /* Service Objects */ = {
+			isa = PBXGroup;
+			children = (
+				947D58D418CA90050013B8C6 /* MCTDataCacheNetworkRequestHandler.h */,
+				947D58D518CA90050013B8C6 /* MCTDataCacheNetworkRequestHandler.m */,
+				947D58CA18CA6F3B0013B8C6 /* URL Formatter */,
+				947D58C118CA59440013B8C6 /* Meta Data */,
+				947D58B218CA429D0013B8C6 /* File Manager */,
+			);
+			name = "Service Objects";
+			sourceTree = "<group>";
+		};
+		947D58B218CA429D0013B8C6 /* File Manager */ = {
+			isa = PBXGroup;
+			children = (
+				947D58AF18CA42900013B8C6 /* MCTDataCacheFileManager.h */,
+				947D58B018CA42900013B8C6 /* MCTDataCacheFileManager.m */,
+				947D58B418CA43EA0013B8C6 /* MCTDataCacheObject.h */,
+				947D58B518CA43EA0013B8C6 /* MCTDataCacheObject.m */,
+			);
+			name = "File Manager";
+			sourceTree = "<group>";
+		};
+		947D58BC18CA55F20013B8C6 /* Test Files */ = {
+			isa = PBXGroup;
+			children = (
+				947D58BF18CA56D80013B8C6 /* test_song.mp3 */,
+			);
+			name = "Test Files";
+			sourceTree = "<group>";
+		};
+		947D58C118CA59440013B8C6 /* Meta Data */ = {
+			isa = PBXGroup;
+			children = (
+				947D58C518CA596F0013B8C6 /* MCTDataCacheMetaData.h */,
+				947D58C618CA596F0013B8C6 /* MCTDataCacheMetaData.m */,
+			);
+			name = "Meta Data";
+			sourceTree = "<group>";
+		};
+		947D58CA18CA6F3B0013B8C6 /* URL Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				947D58CB18CA6F520013B8C6 /* MCTDataCacheURLFormatter.h */,
+				947D58CC18CA6F520013B8C6 /* MCTDataCacheURLFormatter.m */,
+			);
+			name = "URL Formatter";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				947D589518CA354E0013B8C6 /* InfoPlist.strings in Resources */,
+				947D58C018CA56D80013B8C6 /* test_song.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +317,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				947D588218CA354E0013B8C6 /* MCTDataCache.m in Sources */,
+				947D58C718CA596F0013B8C6 /* MCTDataCacheMetaData.m in Sources */,
+				947D58D618CA90050013B8C6 /* MCTDataCacheNetworkRequestHandler.m in Sources */,
+				947D58B618CA43EA0013B8C6 /* MCTDataCacheObject.m in Sources */,
+				947D58CD18CA6F520013B8C6 /* MCTDataCacheURLFormatter.m in Sources */,
+				947D58A318CA36AF0013B8C6 /* MCTDataCacheController.m in Sources */,
+				947D58B118CA42900013B8C6 /* MCTDataCacheFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				947D58C918CA59F70013B8C6 /* MCTDataCacheMetaDataTests.m in Sources */,
 				947D589718CA354E0013B8C6 /* MCTDataCacheTests.m in Sources */,
+				947D58B818CA47B70013B8C6 /* MCTDataCacheFileManagerTests.m in Sources */,
+				947D58CF18CA6F800013B8C6 /* MCTDataCacheURLFormatterTests.m in Sources */,
+				947D58A518CA37430013B8C6 /* MCTDataCacheHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
