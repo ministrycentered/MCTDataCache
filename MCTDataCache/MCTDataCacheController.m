@@ -93,6 +93,10 @@ id static _sharedMCTDataCacheController = nil;
     dispatch_async(self.cacheQueue, ^{
         NSString *hash = [MCTDataCacheURLFormatter fileHashForURL:fileURL params:NULL fileName:NULL];
         NSError *error = nil;
+        NSString *_fileName = [fileName copy];
+        if ([[_fileName pathExtension] length] == 0 && [[fileURL pathExtension] length] > 0) {
+            _fileName = [_fileName stringByAppendingPathExtension:[fileURL pathExtension]];
+        }
         if ([self.fileManager cacheExitsForHash:hash error:&error]) {
             if (error) {
                 if (completion) {
@@ -111,7 +115,7 @@ id static _sharedMCTDataCacheController = nil;
         }
         [self.networkClass loadItemAtURL:fileURL completion:^(NSURL *location, NSURLResponse *response, NSError *error) {
             if (location && !error) {
-                NSDictionary *info = [MCTDataCacheMetaData defaultMetaDataForFile:fileName];
+                NSDictionary *info = [MCTDataCacheMetaData defaultMetaDataForFile:_fileName];
                 NSError *copyError = nil;
                 if (![self.fileManager copyDataAtPath:[location path] toHash:hash info:info error:&copyError]) {
                     if (completion) {
