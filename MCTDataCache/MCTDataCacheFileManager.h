@@ -22,6 +22,7 @@
 - (BOOL)createDirectoryForPath:(NSString *)path error:(NSError **)error;
 
 + (NSString *)rootCacheDirectoryPath;
++ (NSString *)tmpFilePath;
 
 - (NSString *)filePathForRootPath:(NSString *)path;
 - (NSString *)infoPathForRootPath:(NSString *)path;

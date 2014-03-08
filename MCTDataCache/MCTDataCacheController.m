@@ -32,6 +32,7 @@ id static _sharedMCTDataCacheController = nil;
 	if (self) {
         _maxCacheSize = MCTDataCacheSize_500MB;
         _networkClass = [MCTDataCacheNetworkRequestHandler class];
+        [[NSFileManager defaultManager] removeItemAtPath:[MCTDataCacheFileManager tmpFilePath] error:nil];
 	}
 	return self;
 }

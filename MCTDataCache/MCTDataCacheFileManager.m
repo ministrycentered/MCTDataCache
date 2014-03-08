@@ -71,6 +71,18 @@
     });
     return rootPath;
 }
++ (NSString *)tmpFilePath {
+    static NSString *rootPath;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        rootPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+        rootPath = [rootPath stringByAppendingPathComponent:@"MCTDataCache_tmp"];
+    });
+    if (![[NSFileManager defaultManager] fileExistsAtPath:rootPath isDirectory:NULL]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:rootPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return rootPath;
+}
 
 #pragma mark -
 #pragma mark - Path Helpers
