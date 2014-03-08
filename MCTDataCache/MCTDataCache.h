@@ -9,7 +9,7 @@
 #ifndef MCTDataCache_h
 #define MCTDataCache_h
 
-#import "MCTDataCacheController.h"
+#import <MCTDataCache/MCTDataCacheController.h>
 
 #endif
 
