@@ -36,6 +36,8 @@
 
 - (NSSet *)infoFilePaths;
 
+- (BOOL)flushCacheWithError:(NSError **)error;
+
 @end
 
 

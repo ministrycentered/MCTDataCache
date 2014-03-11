@@ -61,12 +61,16 @@
     return [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:error];
 }
 
++ (NSString *)mct_cacheDirectory {
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    rootPath = [rootPath stringByAppendingPathComponent:@"MCTDataCache"];
+    return rootPath;
+}
 + (NSString *)rootCacheDirectoryPath {
     static NSString *rootPath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        rootPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-        rootPath = [rootPath stringByAppendingPathComponent:@"MCTDataCache"];
+        rootPath = [[self class] mct_cacheDirectory];
         rootPath = [rootPath stringByAppendingPathComponent:MCTDataCacheVersionPathString()];
     });
     return rootPath;
@@ -197,6 +201,14 @@
         }
     }
     return [set copy];
+}
+
+- (BOOL)flushCacheWithError:(NSError **)error {
+    NSString *path = [[self class] mct_cacheDirectory];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        return [[NSFileManager defaultManager] removeItemAtPath:[[self class] mct_cacheDirectory] error:error];
+    }
+    return YES;
 }
 
 @end

@@ -81,6 +81,16 @@ id static _sharedMCTDataCacheController = nil;
     return (self.maxCacheSize <= [self cacheSizeInBytes]);
 }
 
+
+#pragma mark -
+#pragma mark - Flush
+- (BOOL)flush {
+    return [self flushWithError:NULL];
+}
+- (BOOL)flushWithError:(NSError **)error {
+    return [self.fileManager flushCacheWithError:error];
+}
+
 #pragma mark -
 #pragma mark - Cache Methods
 - (void)cachedFileAtURL:(NSURL *)fileURL completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {

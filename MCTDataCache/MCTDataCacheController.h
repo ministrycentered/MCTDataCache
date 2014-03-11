@@ -51,6 +51,11 @@
 
 - (BOOL)cacheIsOversized;
 
+#pragma mark -
+#pragma mark - Flush
+- (BOOL)flush;
+- (BOOL)flushWithError:(NSError **)error;
+
 @end
 
 #endif
