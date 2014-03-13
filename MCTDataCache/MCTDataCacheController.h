@@ -58,4 +58,16 @@
 
 @end
 
+#if TARGET_OS_IPHONE
+
+#import <UIKit/UIKit.h>
+
+@interface MCTDataCacheController (DataCacheControllerMobile)
+
+- (void)cachedImageAtURL:(NSURL *)imageURL completion:(void(^)(UIImage *image, NSError *error))completion;
+
+@end
+
+#endif
+
 #endif

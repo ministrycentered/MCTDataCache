@@ -105,6 +105,9 @@ id static _sharedMCTDataCacheController = nil;
         NSString *hash = [MCTDataCacheURLFormatter fileHashForURL:fileURL params:NULL fileName:NULL];
         NSError *error = nil;
         NSString *_fileName = [fileName copy];
+        if (!_fileName) {
+            _fileName = [[fileURL path] lastPathComponent];
+        }
         if ([[_fileName pathExtension] length] == 0 && [[fileURL pathExtension] length] > 0) {
             _fileName = [_fileName stringByAppendingPathExtension:[fileURL pathExtension]];
         }
@@ -124,6 +127,9 @@ id static _sharedMCTDataCacheController = nil;
             }
             return;
         }
+#if DEBUG
+        printf("MCTDataCache: {LOAD} %s",[[fileURL absoluteString] cStringUsingEncoding:NSUTF8StringEncoding]);
+#endif
         [self.networkClass loadItemAtURL:fileURL completion:^(NSURL *location, NSURLResponse *response, NSError *error) {
             if (location && !error) {
                 NSDictionary *info = [MCTDataCacheMetaData defaultMetaDataForFile:_fileName];
@@ -151,5 +157,32 @@ id static _sharedMCTDataCacheController = nil;
     }
 }
 
+@end
+
+#if TARGET_OS_IPHONE
+
+@implementation MCTDataCacheController (DataCacheControllerMobile)
+
+- (void)cachedImageAtURL:(NSURL *)imageURL completion:(void(^)(UIImage *image, NSError *error))completion {
+    [self cachedFileAtURL:imageURL completion:^(NSURL *fileURL, NSDictionary *info, NSError *error) {
+        if (error) {
+            if (completion) {
+                completion(nil, error);
+            }
+            return;
+        }
+        UIImage *image = nil;
+        if (fileURL) {
+            image = [UIImage imageWithContentsOfFile:[fileURL path]];
+        }
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(image, nil);
+            });
+        }
+    }];
+}
 
 @end
+
+#endif

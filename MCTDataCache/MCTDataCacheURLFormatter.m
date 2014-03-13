@@ -44,6 +44,15 @@
                 }
             }
         }
+        if (!_params[@"filename"]) {
+            NSString *_fileName = [[[URL path] pathComponents] lastObject];
+            if (_fileName) {
+                _params[@"filename"] = _fileName;
+                if (fileName != NULL) {
+                    *fileName = [_fileName copy];
+                }
+            }
+        }
         *params = [_params copy];
     }
     return MCTDataCacheSHA1String([components firstObject]);
