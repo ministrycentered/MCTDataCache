@@ -101,6 +101,12 @@ id static _sharedMCTDataCacheController = nil;
     [self cachedFileAtURL:fileURL fileName:name completion:completion];
 }
 - (void)cachedFileAtURL:(NSURL *)fileURL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {
+    if (!fileURL) {
+        if (completion) {
+            completion(nil, nil, nil);
+        }
+        return;
+    }
     dispatch_async(self.cacheQueue, ^{
         NSString *hash = [MCTDataCacheURLFormatter fileHashForURL:fileURL params:NULL fileName:NULL];
         NSError *error = nil;
