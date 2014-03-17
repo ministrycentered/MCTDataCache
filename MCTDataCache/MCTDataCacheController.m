@@ -188,6 +188,25 @@ id static _sharedMCTDataCacheController = nil;
         }
     }];
 }
+- (void)cachedImageAtURL:(NSURL *)imageURL name:(NSString *)name completion:(void (^)(UIImage *image, NSError *error))completion {
+    [self cachedFileAtURL:imageURL fileName:name completion:^(NSURL *fileURL, NSDictionary *info, NSError *error) {
+        if (error) {
+            if (completion) {
+                completion(nil, error);
+            }
+            return;
+        }
+        UIImage *image = nil;
+        if (fileURL) {
+            image = [UIImage imageWithContentsOfFile:[fileURL path]];
+        }
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(image, nil);
+            });
+        }
+    }];
+}
 
 @end
 

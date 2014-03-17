@@ -65,6 +65,7 @@
 @interface MCTDataCacheController (DataCacheControllerMobile)
 
 - (void)cachedImageAtURL:(NSURL *)imageURL completion:(void(^)(UIImage *image, NSError *error))completion;
+- (void)cachedImageAtURL:(NSURL *)imageURL name:(NSString *)name completion:(void (^)(UIImage *image, NSError *error))completion;
 
 @end
 
