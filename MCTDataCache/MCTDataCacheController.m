@@ -81,6 +81,9 @@ id static _sharedMCTDataCacheController = nil;
     return (self.maxCacheSize <= [self cacheSizeInBytes]);
 }
 
+- (NSUInteger)count {
+    return [[self.fileManager infoFilePaths] count];
+}
 
 #pragma mark -
 #pragma mark - Flush

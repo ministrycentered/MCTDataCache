@@ -190,7 +190,7 @@
     NSString *currentPath = [[self class] rootCacheDirectoryPath];
     NSArray *rootPaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:currentPath error:nil];
     NSMutableSet *set = [NSMutableSet set];
-    for (NSString *path in rootPaths) {
+    for (NSString *path in rootPaths) { @autoreleasepool {
         NSArray *hashPaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[currentPath stringByAppendingPathComponent:path] error:nil];
         for (NSString *hash in hashPaths) {
             NSString *fullPath = [[currentPath stringByAppendingPathComponent:path] stringByAppendingPathComponent:hash];
@@ -199,7 +199,7 @@
                 [set addObject:info];
             }
         }
-    }
+    }}
     return [set copy];
 }
 

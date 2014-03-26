@@ -53,6 +53,8 @@
 
 - (BOOL)cacheIsOversized;
 
+- (NSUInteger)count;
+
 #pragma mark -
 #pragma mark - Flush
 - (BOOL)flush;
