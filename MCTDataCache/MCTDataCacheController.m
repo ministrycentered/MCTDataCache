@@ -134,7 +134,7 @@ id static _sharedMCTDataCacheController = nil;
             return;
         }
 #if DEBUG
-        printf("MCTDataCache: {LOAD} %s",[[fileURL absoluteString] cStringUsingEncoding:NSUTF8StringEncoding]);
+        printf("MCTDataCache: {LOAD} %s\n",[[fileURL absoluteString] cStringUsingEncoding:NSUTF8StringEncoding]);
 #endif
         [self.networkClass loadItemAtURL:fileURL completion:^(NSURL *location, NSURLResponse *response, NSError *error) {
             if (location && !error) {
