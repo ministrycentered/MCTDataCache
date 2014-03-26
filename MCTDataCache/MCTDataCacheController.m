@@ -69,12 +69,12 @@ id static _sharedMCTDataCacheController = nil;
     return [[[MCTDataCacheMetaData infoForPaths:[self.fileManager infoFilePaths]] valueForKeyPath:[NSString stringWithFormat:@"@sum.%@",kMCTDataCacheSize]] unsignedLongLongValue];
 }
 - (void)getCacheSize:(void(^)(uint64_t size))completion {
-    dispatch_async(self.cacheQueue, ^{
+    dispatch_async(self.cacheQueue, ^{ @autoreleasepool {
         uint64_t size = [self cacheSizeInBytes];
         if (completion) {
             completion(size);
         }
-    });
+    }});
 }
 
 - (BOOL)cacheIsOversized {
@@ -107,7 +107,7 @@ id static _sharedMCTDataCacheController = nil;
         }
         return;
     }
-    dispatch_async(self.cacheQueue, ^{
+    dispatch_async(self.cacheQueue, ^{ @autoreleasepool {
         NSString *hash = [MCTDataCacheURLFormatter fileHashForURL:fileURL params:NULL fileName:NULL];
         NSError *error = nil;
         NSString *_fileName = [fileName copy];
@@ -150,7 +150,40 @@ id static _sharedMCTDataCacheController = nil;
                 return;
             }
         }];
-    });
+    }});
+}
+- (void)cachedDataForKey:(NSString *)key dataLoader:(NSData *(^)(NSString *key, NSError **error))loader completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {
+    dispatch_async(self.cacheQueue, ^{ @autoreleasepool {
+        NSString *hash = [MCTDataCacheURLFormatter fileHashForName:key];
+        NSError *findError = nil;
+        if ([self.fileManager cacheExitsForHash:hash error:&findError]) {
+            if (findError) {
+                if (completion) {
+                    completion(nil, nil, findError);
+                }
+            }
+            [self readCachedFileWithHash:hash completion:completion];
+            return;
+        }
+        NSError *loadError = nil;
+        NSData *data = loader(key, &loadError);
+        if (data) {
+            NSString *filename = @"file.dat";
+            NSDictionary *info = [MCTDataCacheMetaData defaultMetaDataForFile:filename];
+            NSError *writeError = nil;
+            if (![self.fileManager writeData:data toHash:hash info:info error:&writeError]) {
+                if (completion) {
+                    completion(nil, nil, writeError);
+                }
+                return;
+            }
+            [self readCachedFileWithHash:hash completion:completion];
+        } else {
+            if (completion) {
+                completion(nil, nil, loadError);
+            }
+        }
+    }});
 }
 
 - (void)readCachedFileWithHash:(NSString *)hash completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {

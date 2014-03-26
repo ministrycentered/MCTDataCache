@@ -44,6 +44,8 @@
 - (void)cachedFileAtURL:(NSURL *)fileURL completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
 - (void)cachedFileAtURL:(NSURL *)fileURL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
 
+- (void)cachedDataForKey:(NSString *)key dataLoader:(NSData *(^)(NSString *key, NSError **error))loader completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
+
 #pragma mark -
 #pragma mark - Info
 - (uint64_t)cacheSizeInBytes;
