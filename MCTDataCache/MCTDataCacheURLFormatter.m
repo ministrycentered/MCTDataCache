@@ -29,8 +29,8 @@
         NSMutableDictionary *_params = [NSMutableDictionary dictionary];
         for (NSString *keyVal in [query componentsSeparatedByString:@"&"]) {
             NSArray *info = [keyVal componentsSeparatedByString:@"="];
-            NSString *key = [[info firstObject] stringByRemovingPercentEncoding];
-            NSString *val = [[info lastObject] stringByRemovingPercentEncoding];
+            NSString *key = [[info firstObject] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *val = [[info lastObject] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             if (key && val) {
                 _params[key] = val;
             }
