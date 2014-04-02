@@ -106,7 +106,7 @@ id static _sharedMCTDataCacheController = nil;
 - (void)cachedFileAtURL:(NSURL *)fileURL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {
     if (!fileURL) {
         if (completion) {
-            completion(nil, nil, nil);
+            completion(nil, nil, [NSError errorWithDomain:MCTDataCacheControllerErrorDomain code:100 userInfo:nil]);
         }
         return;
     }
@@ -199,6 +199,37 @@ id static _sharedMCTDataCacheController = nil;
     }
 }
 
+- (BOOL)fileExistsForKey:(NSString *)key {
+    NSString *fileKey = [MCTDataCacheURLFormatter fileHashForName:key];
+    return [self.fileManager cacheExitsForHash:fileKey error:nil];
+}
+- (void)copyFileAtURLToCache:(NSURL *)fileURL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[fileURL path] isDirectory:NULL]) {
+        if (completion) {
+            completion(nil, nil, [NSError errorWithDomain:MCTDataCacheControllerErrorDomain code:100 userInfo:nil]);
+        }
+        return;
+    }
+    
+    NSString *hash = [MCTDataCacheURLFormatter fileHashForName:fileName];
+    NSDictionary *info = [MCTDataCacheMetaData defaultMetaDataForFile:fileName];
+    NSError *error = nil;
+    if (![self.fileManager copyDataAtPath:[fileURL path] toHash:hash info:info error:&error]) {
+        if (completion) {
+            completion(nil, nil, error);
+        }
+        return;
+    }
+    [self readCachedFileWithHash:hash completion:completion];
+}
+- (NSURL *)fileURLForKey:(NSString *)key error:(NSError **)error {
+    MCTDataCacheObject *object = [self.fileManager cachedObjectWithHash:[MCTDataCacheURLFormatter fileHashForName:key] error:error];
+    if (!object) {
+        return nil;
+    }
+    return [NSURL fileURLWithPath:object.filePath];
+}
+
 @end
 
 #if TARGET_OS_IPHONE
@@ -247,3 +278,4 @@ id static _sharedMCTDataCacheController = nil;
 @end
 
 #endif
+NSString * const MCTDataCacheControllerErrorDomain = @"MCTDataCacheControllerErrorDomain";

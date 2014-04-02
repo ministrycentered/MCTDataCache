@@ -166,6 +166,15 @@
     }
     uint64_t fileSize = [fileAttributes[NSFileSize] unsignedLongLongValue];
     info = [MCTDataCacheMetaData updateInfo:info fileSize:fileSize readDate:[NSDate date] path:object.rootPath hash:object.hash];
+    
+    if (info[kMCTDataCacheFileName]) {
+        NSError *symError = nil;
+        [[NSFileManager defaultManager] createSymbolicLinkAtPath:[object.rootPath stringByAppendingPathComponent:info[kMCTDataCacheFileName]] withDestinationPath:object.filePath error:&symError];
+        if (symError) {
+            NSLog(@"Symlink failed %@",symError);
+        }
+    }
+    
     NSData *JSON = [NSJSONSerialization dataWithJSONObject:info options:options error:error];
     if (!JSON) {
         return NO;

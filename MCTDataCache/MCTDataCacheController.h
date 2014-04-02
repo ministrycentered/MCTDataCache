@@ -46,6 +46,10 @@
 
 - (void)cachedDataForKey:(NSString *)key dataLoader:(NSData *(^)(NSString *key, NSError **error))loader completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
 
+- (void)copyFileAtURLToCache:(NSURL *)fileURL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
+- (NSURL *)fileURLForKey:(NSString *)key error:(NSError **)error;
+- (BOOL)fileExistsForKey:(NSString *)key;
+
 #pragma mark -
 #pragma mark - Info
 - (uint64_t)cacheSizeInBytes;
@@ -74,5 +78,7 @@
 @end
 
 #endif
+
+OBJC_EXTERN NSString * const MCTDataCacheControllerErrorDomain;
 
 #endif
