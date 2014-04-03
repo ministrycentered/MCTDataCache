@@ -223,11 +223,30 @@ id static _sharedMCTDataCacheController = nil;
     [self readCachedFileWithHash:hash completion:completion];
 }
 - (NSURL *)fileURLForKey:(NSString *)key error:(NSError **)error {
+    if (![self fileExistsForKey:key]) {
+        return nil;
+    }
     MCTDataCacheObject *object = [self.fileManager cachedObjectWithHash:[MCTDataCacheURLFormatter fileHashForName:key] error:error];
     if (!object) {
         return nil;
     }
     return [NSURL fileURLWithPath:object.filePath];
+}
+- (NSURL *)fileNameURLForKey:(NSString *)key error:(NSError **)error {
+    if (![self fileExistsForKey:key]) {
+        return nil;
+    }
+    MCTDataCacheObject *object = [self.fileManager cachedObjectWithHash:[MCTDataCacheURLFormatter fileHashForName:key] error:error];
+    if (!object) {
+        return nil;
+    }
+    if (object.info[kMCTDataCacheFileName]) {
+        NSString *filePath = [object.rootPath stringByAppendingPathComponent:object.info[kMCTDataCacheFileName]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            return [NSURL fileURLWithPath:filePath];
+        }
+    }
+    return nil;
 }
 
 @end

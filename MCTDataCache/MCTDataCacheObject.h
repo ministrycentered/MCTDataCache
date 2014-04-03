@@ -18,6 +18,8 @@
 @property (nonatomic, strong, readonly) NSString *filePath;
 @property (nonatomic, strong, readonly) NSString *fileInfoPath;
 
+@property (nonatomic, strong, readonly) NSDictionary *info;
+
 - (instancetype)initWithHash:(NSString *)hash rootPath:(NSString *)rootPath filePath:(NSString *)filePath fileInfoPath:(NSString *)fileInfoPath;
 
 @end

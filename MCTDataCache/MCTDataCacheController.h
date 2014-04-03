@@ -48,6 +48,7 @@
 
 - (void)copyFileAtURLToCache:(NSURL *)fileURL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
 - (NSURL *)fileURLForKey:(NSString *)key error:(NSError **)error;
+- (NSURL *)fileNameURLForKey:(NSString *)key error:(NSError **)error;
 - (BOOL)fileExistsForKey:(NSString *)key;
 
 #pragma mark -
