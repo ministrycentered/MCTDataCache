@@ -38,6 +38,8 @@
 
 - (BOOL)flushCacheWithError:(NSError **)error;
 
++ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL error:(NSError **)error;
+
 @end
 
 

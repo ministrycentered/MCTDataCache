@@ -220,4 +220,16 @@
     return YES;
 }
 
+#pragma mark -
+#pragma mark - Helper
++ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL error:(NSError **)error {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[URL path]]) {
+        if (error != NULL) {
+            *error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileNoSuchFileError userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Can't skip backup for a file that doesn't exist", nil)}];
+        }
+        return NO;
+    }
+    return [URL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:error];;
+}
+
 @end
