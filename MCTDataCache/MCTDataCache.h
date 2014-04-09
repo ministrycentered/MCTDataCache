@@ -10,6 +10,7 @@
 #define MCTDataCache_h
 
 #import <MCTDataCache/MCTDataCacheController.h>
+#import <MCTDataCache/MCTDataCacheMetaData.h>
 
 #endif
 

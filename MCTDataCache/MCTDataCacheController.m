@@ -19,6 +19,8 @@ id static _sharedMCTDataCacheController = nil;
 
 @interface MCTDataCacheController ()
 
+@property (nonatomic, strong) NSCache *infoCache;
+
 @end
 
 @implementation MCTDataCacheController
@@ -83,6 +85,13 @@ id static _sharedMCTDataCacheController = nil;
 
 - (NSUInteger)count {
     return [[self.fileManager infoFilePaths] count];
+}
+
+- (NSCache *)infoCache {
+    if (!_infoCache) {
+        _infoCache = [[NSCache alloc] init];
+    }
+    return _infoCache;
 }
 
 #pragma mark -
@@ -193,7 +202,13 @@ id static _sharedMCTDataCacheController = nil;
     NSError *error = nil;
     MCTDataCacheObject *object = [self.fileManager cachedObjectWithHash:hash error:&error];
     NSURL *url = [NSURL fileURLWithPath:object.filePath];
-    NSDictionary *info = [MCTDataCacheMetaData infoForPath:object.fileInfoPath error:&error];
+    NSDictionary *info = [self.infoCache objectForKey:hash];
+    if (!info) {
+        info = [MCTDataCacheMetaData infoForPath:object.fileInfoPath error:&error];
+        if (info) {
+            [self.infoCache setObject:info forKey:hash];
+        }
+    }
     if (completion) {
         completion(url, info, error);
     }
