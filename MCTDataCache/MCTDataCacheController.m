@@ -249,6 +249,43 @@ id static _sharedMCTDataCacheController = nil;
     return nil;
 }
 
+
+- (BOOL)removeItemWithKey:(NSString *)key error:(NSError **)error {
+    return [self removeItemForHash:[MCTDataCacheURLFormatter fileHashForName:key] error:error];
+}
+- (BOOL)removeItemWithURL:(NSURL *)URL error:(NSError **)error {
+    NSString *hash = [MCTDataCacheURLFormatter fileHashForURL:URL];
+    return [self removeItemForHash:hash error:error];
+}
+- (BOOL)removeItemForHash:(NSString *)hash error:(NSError **)error {
+    return [self.fileManager deleteHash:hash error:error];
+}
+
+
+- (void)writeData:(NSData *)data forURL:(NSURL *)URL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {
+    [self writeData:data forHash:[MCTDataCacheURLFormatter fileHashForURL:URL] fileName:fileName completion:completion];
+}
+- (void)writeData:(NSData *)data forKey:(NSString *)key fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {
+    [self writeData:data forHash:[MCTDataCacheURLFormatter fileHashForName:key] fileName:fileName completion:completion];
+}
+- (void)writeData:(NSData *)data forHash:(NSString *)hash fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion {
+    if (data && hash && fileName) {
+        NSDictionary *info = [MCTDataCacheMetaData defaultMetaDataForFile:fileName];
+        NSError *error = nil;
+        if (![self.fileManager writeData:data toHash:hash info:info error:&error]) {
+            if (completion) {
+                completion(nil, nil, error);
+            }
+            return;
+        }
+        [self readCachedFileWithHash:hash completion:completion];
+        return;
+    }
+    if (completion) {
+        completion(nil, nil, [NSError errorWithDomain:MCTDataCacheControllerErrorDomain code:4000 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Can't write data without key or filename or nil data", nil)}]);
+    }
+}
+
 @end
 
 #if TARGET_OS_IPHONE

@@ -51,6 +51,12 @@
 - (NSURL *)fileNameURLForKey:(NSString *)key error:(NSError **)error;
 - (BOOL)fileExistsForKey:(NSString *)key;
 
+- (void)writeData:(NSData *)data forURL:(NSURL *)URL fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
+- (void)writeData:(NSData *)data forKey:(NSString *)key fileName:(NSString *)fileName completion:(void(^)(NSURL *fileURL, NSDictionary *info, NSError *error))completion;
+
+- (BOOL)removeItemWithKey:(NSString *)key error:(NSError **)error;
+- (BOOL)removeItemWithURL:(NSURL *)URL error:(NSError **)error;
+
 #pragma mark -
 #pragma mark - Info
 - (uint64_t)cacheSizeInBytes;
