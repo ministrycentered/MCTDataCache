@@ -169,7 +169,7 @@
     
     if (info[kMCTDataCacheFileName]) {
         NSError *symError = nil;
-        [[NSFileManager defaultManager] createSymbolicLinkAtPath:[object.rootPath stringByAppendingPathComponent:info[kMCTDataCacheFileName]] withDestinationPath:object.filePath error:&symError];
+        [[NSFileManager defaultManager] linkItemAtPath:object.filePath toPath:[object.rootPath stringByAppendingPathComponent:info[kMCTDataCacheFileName]] error:&symError];
         if (symError) {
             NSLog(@"Symlink failed %@",symError);
         }
