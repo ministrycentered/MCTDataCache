@@ -73,6 +73,9 @@
     name = [name stringByReplacingOccurrencesOfString:@"filename=\"" withString:@""];
     return name;
 }
++ (NSString *)fileNameEscapeName:(NSString *)name {
+    return [name stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+}
 
 + (NSString *)fileHashForName:(NSString *)name {
     return MCTDataCacheSHA1String(name);

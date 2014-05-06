@@ -129,6 +129,9 @@ id static _sharedMCTDataCacheController = nil;
         if ([[_fileName pathExtension] length] == 0 && [[fileURL pathExtension] length] > 0) {
             _fileName = [_fileName stringByAppendingPathExtension:[fileURL pathExtension]];
         }
+        
+        _fileName = [MCTDataCacheURLFormatter fileNameEscapeName:_fileName];
+        
         if ([self.fileManager cacheExitsForHash:hash error:&error]) {
             if (error) {
                 if (completion) {

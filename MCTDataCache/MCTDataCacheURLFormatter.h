@@ -34,6 +34,8 @@
 
 + (NSString *)fileHashForName:(NSString *)name;
 
++ (NSString *)fileNameEscapeName:(NSString *)name;
+
 @end
 
 #endif
