@@ -1,0 +1,5 @@
+language: objective-c
+before_install:
+  - brew update
+  - brew upgrade xctool
+script: xctool -project MCTDataCache.xcodeproj -scheme MCTDataCache -sdk iphonesimulator IS_CI_BUILD=1 test
