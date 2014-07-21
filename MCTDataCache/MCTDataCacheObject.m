@@ -14,6 +14,7 @@
 
 @implementation MCTDataCacheObject
 @synthesize info = _info;
+@synthesize hash = _hash;
 
 - (instancetype)initWithHash:(NSString *)hash rootPath:(NSString *)rootPath filePath:(NSString *)filePath fileInfoPath:(NSString *)fileInfoPath {
     self = [super init];
