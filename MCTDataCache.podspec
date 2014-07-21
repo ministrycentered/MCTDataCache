@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MCTDataCache"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "MCTDataCache is a file/data cache for iOS"
   s.homepage     = "https://github.com/ministrycentered/MCTDataCache"
   s.license      = { :type => "MIT", :file => "LICENSE" }
