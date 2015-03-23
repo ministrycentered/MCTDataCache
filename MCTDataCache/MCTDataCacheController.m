@@ -300,7 +300,7 @@ id static _sharedMCTDataCacheController = nil;
         return;
     }
     if (completion) {
-        completion(nil, nil, [NSError errorWithDomain:MCTDataCacheControllerErrorDomain code:4000 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Can't write data without key or filename or nil data", nil)}]);
+        completion(nil, nil, [NSError errorWithDomain:MCTDataCacheControllerErrorDomain code:4000 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Can't write data without key, filename, or nil data", nil)}]);
     }
 }
 
