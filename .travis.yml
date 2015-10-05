@@ -1,2 +1,0 @@
-language: objective-c
-script: xctool -project MCTDataCache.xcodeproj -scheme MCTDataCache -sdk iphonesimulator IS_CI_BUILD=1 test
