@@ -279,7 +279,7 @@
 		947D586F18CA354D0013B8C6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Ministry Centered Technology";
 			};
 			buildConfigurationList = 947D587218CA354D0013B8C6 /* Build configuration list for PBXProject "MCTDataCache" */;
@@ -377,6 +377,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -434,6 +435,7 @@
 				DSTROOT = /tmp/MCTDataCache.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCTDataCache/MCTDataCache-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -446,6 +448,7 @@
 				DSTROOT = /tmp/MCTDataCache.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCTDataCache/MCTDataCache-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -472,6 +475,7 @@
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "MCTDataCacheTests/MCTDataCacheTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ministrycentered.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -493,6 +497,7 @@
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "MCTDataCacheTests/MCTDataCacheTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ministrycentered.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
