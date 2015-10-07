@@ -9,7 +9,7 @@
 #ifndef MCTDataCacheMetaData_h
 #define MCTDataCacheMetaData_h
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface MCTDataCacheMetaData : NSObject
 
