@@ -9,7 +9,7 @@
 #ifndef MCTDataCache_MCTDataCacheController_h
 #define MCTDataCache_MCTDataCacheController_h
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import "MCTDataCacheData.h"
 
 @class MCTDataCacheFileManager;
@@ -75,7 +75,7 @@
 
 #if TARGET_OS_IPHONE
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface MCTDataCacheController (DataCacheControllerMobile)
 
