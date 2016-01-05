@@ -45,11 +45,14 @@
             }
         }
         if (!_params[@"filename"]) {
-            NSString *_fileName = [[[URL path] pathComponents] lastObject];
-            if (_fileName) {
-                _params[@"filename"] = _fileName;
-                if (fileName != NULL) {
-                    *fileName = [_fileName copy];
+            NSString *path = [URL path];
+            if (path.length > 0) {
+                NSString *_fileName = [path stringByReplacingOccurrencesOfString:@"/" withString:@"#"];
+                if (_fileName) {
+                    _params[@"filename"] = _fileName;
+                    if (fileName != NULL) {
+                        *fileName = [_fileName copy];
+                    }
                 }
             }
         }
