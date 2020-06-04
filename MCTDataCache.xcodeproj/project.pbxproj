@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2284DA832489B19F00BE3AE8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2284DA822489B19F00BE3AE8 /* CoreServices.framework */; };
 		947D587B18CA354E0013B8C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D587A18CA354E0013B8C6 /* Foundation.framework */; };
 		947D588018CA354E0013B8C6 /* MCTDataCache.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 947D587F18CA354E0013B8C6 /* MCTDataCache.h */; };
 		947D588918CA354E0013B8C6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D588818CA354E0013B8C6 /* XCTest.framework */; };
@@ -20,7 +21,6 @@
 		947D58B118CA42900013B8C6 /* MCTDataCacheFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58B018CA42900013B8C6 /* MCTDataCacheFileManager.m */; };
 		947D58B618CA43EA0013B8C6 /* MCTDataCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58B518CA43EA0013B8C6 /* MCTDataCacheObject.m */; };
 		947D58B818CA47B70013B8C6 /* MCTDataCacheFileManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58B718CA47B70013B8C6 /* MCTDataCacheFileManagerTests.m */; };
-		947D58BA18CA4CD30013B8C6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D58B918CA4CD30013B8C6 /* MobileCoreServices.framework */; };
 		947D58BB18CA4CDB0013B8C6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947D58B918CA4CD30013B8C6 /* MobileCoreServices.framework */; };
 		947D58C018CA56D80013B8C6 /* test_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 947D58BF18CA56D80013B8C6 /* test_song.mp3 */; };
 		947D58C718CA596F0013B8C6 /* MCTDataCacheMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D58C618CA596F0013B8C6 /* MCTDataCacheMetaData.m */; };
@@ -54,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2284DA822489B19F00BE3AE8 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		947D587718CA354E0013B8C6 /* libMCTDataCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMCTDataCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		947D587A18CA354E0013B8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		947D587E18CA354E0013B8C6 /* MCTDataCache-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCTDataCache-Prefix.pch"; sourceTree = "<group>"; };
@@ -91,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				947D58BA18CA4CD30013B8C6 /* MobileCoreServices.framework in Frameworks */,
+				2284DA832489B19F00BE3AE8 /* CoreServices.framework in Frameworks */,
 				947D587B18CA354E0013B8C6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +134,7 @@
 		947D587918CA354E0013B8C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2284DA822489B19F00BE3AE8 /* CoreServices.framework */,
 				947D58B918CA4CD30013B8C6 /* MobileCoreServices.framework */,
 				947D587A18CA354E0013B8C6 /* Foundation.framework */,
 				947D588818CA354E0013B8C6 /* XCTest.framework */,
@@ -287,6 +289,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 947D586E18CA354D0013B8C6;
